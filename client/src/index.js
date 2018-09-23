@@ -18,5 +18,6 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-console.log("Node env", process.env.NODE_ENV);
 registerServiceWorker();
+
+

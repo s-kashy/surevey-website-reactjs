@@ -22,7 +22,7 @@ module.exports = app => {
   });
   app.get("/api/current_user", (req, res) => {
     ///req.session extact the cookie from the req
-    console.log(req.session)
+    // console.log(req.session)
     res.send(req.user);
   });
 };
