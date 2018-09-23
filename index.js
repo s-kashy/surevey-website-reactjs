@@ -27,9 +27,10 @@ require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"))
   // Express will server up production assest like main.js
   //or main.css file
-
+//make sure to run "npm run build"
   //express will server up index.html file if it dosn't recognzie the route
   const path = require("path");
   app.get("*", (req, res) => {
