@@ -4,7 +4,7 @@ import _ from 'lodash';
 import validateEmail from "../utils/validateEmails"
 import { Link } from "react-router-dom"
 import SurveyField from "./SurveyField"
-import  formField  from "./formField"
+import formField from "./formField"
 class SurveyForm extends Component {
     renderField = () => {
         return (
@@ -36,11 +36,11 @@ class SurveyForm extends Component {
 }
 function validate(values) {
     const errors = {};
-
-    if (values.emails &&values.emails.charAt(values.emails.length-1)===","){
-       values.emails= values.emails.substring(0, values.emails.length-1);
+    console.log(values)
+    if (values.recipients && values.recipients.charAt(values.recipients.length - 1) === ",") {
+        values.recipients = values.recipients.substring(0, values.recipients.length - 1);
     }
-    errors.emails = validateEmail(values.emails||"")
+    errors.recipients = validateEmail(values.recipients || "")
     _.each(formField, ({ name, noValueError }, index) => {
 
         if (!values[name]) {
@@ -49,11 +49,13 @@ function validate(values) {
         }
 
     })
- 
+
     return errors
 
 
 }
-export default reduxForm({ validate: validate,
-     form: 'surveyForm',
-     destroyOnUnmount  :false, })(SurveyForm)
+export default reduxForm({
+    validate: validate,
+    form: 'surveyForm',
+    destroyOnUnmount: false,
+})(SurveyForm)
