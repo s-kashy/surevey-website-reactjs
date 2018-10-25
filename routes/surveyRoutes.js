@@ -10,7 +10,7 @@ module.exports = app => {
 
     app.get("/api/surveys/thanks",(req,res)=>{
         res.writeHead(200,{"content-type":"text/html"})
-        res.end('<p>hi there</p>')
+        res.end('<p>Hi there thank you !!!</p>')
     })
     app.post("/api/surveys", requireLogin, requireCredits, async (req, res) => {
 
